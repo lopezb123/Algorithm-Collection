@@ -1,0 +1,58 @@
+public class Trie {
+
+    static final int ALPHABET_SIZE = 26;
+
+    static class TrieNode
+    {
+        node[] children = new TrieNode[ALPHABET_SIZE];
+
+        boolean isEndOfWord;
+
+        node(){
+            isEndOfWord = false;
+            for (int i = 0; i < ALPHABET_SIZE; i++)
+                children[i] = null;
+        }
+    };
+
+    static TrieNode root;
+
+    static void insert(String k)
+    {
+        int index;
+        int length = k.length();
+
+        TrieNode n = root;
+
+        for (int count = 0; count < length; count++)
+        {
+            index = key.charAt(count) - 'a';
+            if (n.children[index] == null)
+                n.children[index] = new node();
+
+            n = n.children[index];
+        }
+
+        n.isEndOfWord = true;
+    }
+    static boolean search(String key)
+    {
+        int index;
+        int length = key.length();
+
+        TrieNode pCrawl = root;
+
+        for (int count = 0; count < length; count++)
+        {
+            index = key.charAt(count) - 'a';
+
+            if (pCrawl.children[index] == null)
+                return false;
+
+            pCrawl = pCrawl.children[index];
+        }
+
+        return (n.isEndOfWord);
+    }
+
+} 
